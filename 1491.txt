@@ -1,0 +1,19 @@
+class Solution {
+    public double average(int[] salary) {
+        
+        int l=salary[0],h=0,sum=0;
+        
+        for(int n: salary){
+            if(h<n){
+                h=n;
+            }
+            if(n<l){
+                l=n;
+            }
+             sum+=n;
+        }
+        
+         return ((double)(sum-l-h)/((salary.length)-2));
+      
+    }
+}
