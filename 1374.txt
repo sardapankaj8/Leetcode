@@ -1,0 +1,15 @@
+class Solution {
+    public String generateTheString(int n) {
+       StringBuffer ss = new StringBuffer();
+
+	
+			for (int i = 0; i < n - 1; i++) {
+				ss.append("a");
+			}
+			
+      return (n%2==0)?ss.append("b").toString():ss.append("a").toString();   
+
+	
+        
+    }
+}
