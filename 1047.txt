@@ -1,0 +1,28 @@
+class Solution {
+    public String removeDuplicates(String S) {
+        char[] arr = S.toCharArray();
+
+		Stack<Character> ss = new Stack();
+		String my = "";
+		for (char c : arr) {
+
+			if (!ss.isEmpty()) {
+				char s = ss.peek();
+				if (s == c) {
+					ss.pop();
+				} else {
+					ss.push(c);
+				}
+			} else {
+				ss.push(c);
+			}
+		}
+
+		Iterator itr = ss.iterator();
+
+		while (ss.is()) {
+			my = my.concat(itr.next().toString());
+		}
+		return my;
+    }
+}
