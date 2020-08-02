@@ -1,0 +1,31 @@
+class Solution {
+    public List<String> commonChars(String[] str) {
+        
+        String s1=str[0];
+		
+		for (int i = 1; i < str.length; i++) {
+			char[] sarr1=s1.toCharArray();
+			
+			for (char c : sarr1) {
+				if(str[i].contains(Character.toString(c))){
+//					System.out.println("before  "+str[i]);
+					int in=str[i].indexOf(c);
+					str[i]=str[i].substring(0, in)+str[i].substring(in+1);
+//					System.out.println("after "+str[i]+ "  "+c);
+				}else {
+					int in=s1.indexOf(c);
+					s1=s1.substring(0, in)+s1.substring(in+1);
+//					s1.replaceFirst(Character.toString(c), "");
+				}
+				
+			}
+		}
+        List<String> list=new ArrayList<>();
+		
+		char[] a=s1.toCharArray();
+		for(char m:a) {
+			list.add(Character.toString(m));
+		}
+		return list;
+    }
+}
