@@ -1,0 +1,50 @@
+class Solution {
+    public int countCharacters(String[] words, String chars) {
+        int cnt=0;
+
+	   HashMap<Character, Integer> map =new HashMap<Character, Integer>();
+	   
+	   char[] arr=chars.toCharArray();
+	   for (char c : arr) {
+		
+		   if(map.containsKey(c)) {
+			   map.put(c, map.get(c)+1);
+		   }else {
+			   map.put(c, 1);
+		   }
+	   }
+	   for (String word : words) {
+		   HashMap<Character, Integer> wordMap=new HashMap<Character, Integer>();
+		  char[] wrr= word.toCharArray();
+		  
+		  for (char c : wrr) {
+			
+		  if(wordMap.containsKey(c)) {
+			  wordMap.put(c, wordMap.get(c)+1);
+		   }else {
+			   wordMap.put(c, 1);
+		   }
+	    }
+		  
+		  
+		  Boolean flag=false;
+		 for(Character ch:  wordMap.keySet()) {
+			 
+			if( (map.get(ch) !=null)&&(wordMap.get(ch)<=map.get(ch))) {
+				flag=true;
+			}else {
+				flag=false;
+				break;
+			}
+		 }
+		if(flag)
+			cnt+=word.length();
+		System.out.println("cnt"+cnt);
+		  
+	   }
+	   
+	   
+		return cnt;
+	
+    }
+}
